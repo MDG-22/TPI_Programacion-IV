@@ -10,10 +10,10 @@ namespace Application.Interfaces
     public interface IUserService
     {
         IEnumerable<UserDto> GetAll();
-        UserDto? GetById(int id);
-        void Add(UserDto user);
-        void Update(UserDto user);
-        void Delete(UserDto user);
+        UserDto? GetUserById(int id);
+        void AddUser(UserDto user);
+        void UpdateUser(UserDto user);
+        void DeleteUser(UserDto user);
     }
 
 }

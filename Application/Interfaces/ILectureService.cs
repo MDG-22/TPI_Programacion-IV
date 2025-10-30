@@ -11,12 +11,12 @@ namespace Application.Interfaces
     public interface ILectureService
     {
         IEnumerable<LectureDto> GetAll();
-        LectureDto? GetById(int id);
-        void Add(LectureDto lecture);
-        void Update(LectureDto lecture);
-        void Delete(LectureDto lecture);
+        LectureDto? GetLectureById(int id);
+        void AddLecture(LectureDto lecture);
+        void UpdateLecture(LectureDto lecture);
+        void DeleteLecture(LectureDto lecture);
 
         // por estatus
-        IEnumerable<LectureDto> GetByStatus(LectureStatus status);
+        IEnumerable<LectureDto> GetLectureByStatus(LectureStatus status);
     }
 }
