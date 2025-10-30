@@ -11,10 +11,10 @@ namespace Domain.Interfaces
     public interface ILectureRepository
     {
         IEnumerable<Lecture> GetAll();
-        Lecture? GetById(int id);
-        void Add(Lecture lecture);
-        void Update(Lecture lecture);
-        void Delete(Lecture lecture);
+        Lecture? GetLectureById(int id);
+        void AddLecture(Lecture lecture);
+        void UpdateLecture(Lecture lecture);
+        void DeleteLecture(Lecture lecture);
 
         // by status
         IEnumerable<Lecture> GetByStatus(LectureStatus status);

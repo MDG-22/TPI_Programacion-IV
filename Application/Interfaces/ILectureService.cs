@@ -17,6 +17,6 @@ namespace Application.Interfaces
         void DeleteLecture(LectureDto lecture);
 
         // por estatus
-        IEnumerable<LectureDto> GetLectureByStatus(LectureStatus status);
+        IEnumerable<LectureDto> GetByStatus(LectureStatus status);
     }
 }

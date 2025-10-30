@@ -10,10 +10,10 @@ namespace Domain.Interfaces
     public interface IBookRepository
     {
         IEnumerable<Book> GetAll();
-        Book? GetbyId(int id);
-        void Add(Book book);
-        void Update(Book book);
-        void Delete(Book book);
+        Book? GetBookById(int id);
+        Book AddBook(Book book);
+        Book? UpdateBook(Book book);
+        void DeleteBook(int id);
 
         // by title
         IEnumerable<Book> SearchByTitle(string titleForSearch);
