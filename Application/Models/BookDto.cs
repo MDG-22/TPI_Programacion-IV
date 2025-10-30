@@ -18,7 +18,7 @@ namespace Application.Models
         public List<GenreDto> Genres { get; set; } = new List<GenreDto>();
 
         // Mapeo
-        public static BookDto Create(Book book)
+        public static BookDto ToDto(Book book)
         {
             return new BookDto
             {
@@ -29,6 +29,24 @@ namespace Application.Models
                 Summary = book.Summary,
                 CoverUrl = book.CoverUrl,
                 Genres = book.Genres?.Select(g => new GenreDto
+                {
+                    Id = g.Id,
+                    GenreName = g.GenreName
+                }).ToList()
+            };
+        }
+
+        public static Book ToEntity(BookDto dto)
+        {
+            return new Book
+            {
+                Id = dto.Id,
+                Title = dto.Title,
+                Author = dto.Author,
+                Pages = dto.Pages,
+                Summary = dto.Summary,
+                CoverUrl = dto.CoverUrl,
+                Genres = dto.Genres?.Select(g => new Genre
                 {
                     Id = g.Id,
                     GenreName = g.GenreName

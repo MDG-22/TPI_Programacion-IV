@@ -23,14 +23,14 @@ namespace Application.Services
         {
             var books = _bookRepository.GetAll();
 
-            return books.Select(BookDto.Create);
+            return books.Select(BookDto.ToDto);
         }
 
         public BookDto? GetBookbyId(int id)
         {
             var book = _bookRepository.GetBookById(id);
 
-            return BookDto.Create(book);
+            return BookDto.ToDto(book);
         }
 
         public BookDto AddBook(BookDto dto)
@@ -46,17 +46,38 @@ namespace Application.Services
 
             _bookRepository.AddBook(newBook);
 
-            return BookDto.Create(newBook);
+            return BookDto.ToDto(newBook);
         }
 
-        public BookDto? UpdateBook(BookDto book)
+        public BookDto? UpdateBook(BookDto update)
         {
+            var book = _bookRepository.GetBookById(update.Id);
 
+            book.Title = update.Title;
+            book.Author = update.Author;
+            book.Pages = update.Pages;
+            book.Summary = update.Summary;
+            book.Genres = update.Genres.Select(g => new Genre
+            {
+                Id = g.Id,
+                GenreName = g.GenreName
+            }).ToList();
+
+            _bookRepository.UpdateBook(book);
+
+            return BookDto.ToDto(book);
         }
 
         public void DeleteBook(int id)
         {
             _bookRepository.DeleteBook(id);
+        }
+
+        public IEnumerable<BookDto> SearchByTitle(string titleForSearch)
+        {
+            var books = _bookRepository.SearchByTitle(titleForSearch);
+
+            return books.Select(BookDto.ToDto);
         }
     }
 }
