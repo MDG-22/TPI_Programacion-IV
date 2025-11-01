@@ -1,4 +1,5 @@
 ﻿using Application.Models;
+using Application.Models.Requests;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,13 +10,11 @@ namespace Application.Interfaces
 {
     public interface IBookService
     {
-        IEnumerable<BookDto> GetAll();
-        BookDto? GetBookbyId(int id);
-        BookDto AddBook(BookDto book);
-        BookDto? UpdateBook(BookDto book);
-        void DeleteBook(BookDto book);
-
-        // busqueda por titulo
-        IEnumerable<BookDto> SearchBookByTitle(string titleForSearch);
+        IEnumerable<BookDto> GetAllBooks();
+        BookDto GetBookbyId(int id);
+        BookDto CreateBook(CreateBookRequest book);
+        BookDto UpdateBook(BookDto book);
+        void DeleteBook(int id);
+        IEnumerable<BookDto> SearchByTitle(string titleForSearch);
     }
 }

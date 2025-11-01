@@ -8,15 +8,9 @@ using System.Threading.Tasks;
 
 namespace Domain.Interfaces
 {
-    public interface ILectureRepository
+    public interface ILectureRepository : IRepository<Lecture>
     {
-        IEnumerable<Lecture> GetAll();
-        Lecture? GetById(int id);
-        void Add(Lecture lecture);
-        void Update(Lecture lecture);
-        void Delete(Lecture lecture);
-
-        // by status
+        // Por status
         IEnumerable<Lecture> GetByStatus(LectureStatus status);
     }
 }

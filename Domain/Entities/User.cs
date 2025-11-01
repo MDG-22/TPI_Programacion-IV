@@ -16,9 +16,9 @@ namespace Domain.Entities
         public string AvatarUrl { get; set; }
         public string Description { get; set; }
         public UserRole Role { get; set; }
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime CreatedAt { get; set; }
 
         // lista de lecturas inicializada vacia
-        public List<Lecture> Lectures { get; set; } = new List<Lecture>();
+        //public List<Lecture> Lectures { get; set; } = new List<Lecture>();
     }
 }

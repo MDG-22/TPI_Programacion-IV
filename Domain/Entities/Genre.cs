@@ -12,6 +12,6 @@ namespace Domain.Entities
         public string GenreName { get; set; }
 
         // relacion M:N con libros, lista inicializada vacia => new()
-        public List<Book> Books { get; set; } = new();
+        //public List<Book> Books { get; set; } = new();
     }
 }
